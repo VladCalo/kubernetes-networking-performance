@@ -3,9 +3,12 @@
 CLUSTER_NAME="default"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+source "$SCRIPT_DIR/../common/utility.sh"
+
 case "$1" in
   create)
     kind create cluster --name "$CLUSTER_NAME" --config "$SCRIPT_DIR/kind-default.yaml"
+    taint_control_plane "$CLUSTER_NAME"
     ;;
   delete)
     kind delete cluster --name "$CLUSTER_NAME"

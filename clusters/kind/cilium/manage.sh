@@ -3,10 +3,13 @@
 CLUSTER_NAME="cilium"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+source "$SCRIPT_DIR/../common/utility.sh"
+
 create_cluster() {
     kind create cluster --name "$CLUSTER_NAME" --config "$SCRIPT_DIR/kind-cilium.yaml"
     cilium install --context kind-cilium
     cilium status --wait --context kind-cilium
+    taint_control_plane "$CLUSTER_NAME"
 }
 
 case "$1" in
@@ -21,4 +24,3 @@ case "$1" in
     exit 1
     ;;
 esac
-

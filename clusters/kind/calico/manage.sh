@@ -3,9 +3,12 @@
 CLUSTER_NAME="calico"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+source "$SCRIPT_DIR/../common/utility.sh"
+
 create_cluster() {
     kind create cluster --name "$CLUSTER_NAME" --config "$SCRIPT_DIR/kind-calico.yaml"
     kubectl --context kind-calico apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/calico.yaml
+    taint_control_plane "$CLUSTER_NAME"
 }
 
 case "$1" in
