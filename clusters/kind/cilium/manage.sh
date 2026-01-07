@@ -1,0 +1,24 @@
+#!/bin/bash
+
+CLUSTER_NAME="cilium"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+create_cluster() {
+    kind create cluster --name "$CLUSTER_NAME" --config "$SCRIPT_DIR/kind-cilium.yaml"
+    cilium install --context kind-cilium
+    cilium status --wait --context kind-cilium
+}
+
+case "$1" in
+  create)
+    create_cluster
+    ;;
+  delete)
+    kind delete cluster --name "$CLUSTER_NAME"
+    ;;
+  *)
+    echo "Usage: $0 {create|delete}"
+    exit 1
+    ;;
+esac
+
