@@ -1,0 +1,22 @@
+#!/bin/bash
+
+CLUSTER_NAME="calico"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+create_cluster() {
+    kind create cluster --name "$CLUSTER_NAME" --config "$SCRIPT_DIR/kind-calico.yaml"
+    kubectl --context kind-calico apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/calico.yaml
+}
+
+case "$1" in
+  create)
+    create_cluster
+    ;;
+  delete)
+    kind delete cluster --name "$CLUSTER_NAME"
+    ;;
+  *)
+    echo "Usage: $0 {create|delete}"
+    exit 1
+    ;;
+esac
