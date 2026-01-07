@@ -9,6 +9,10 @@ create_cluster() {
     kind create cluster --name "$CLUSTER_NAME" --config "$SCRIPT_DIR/kind-cilium.yaml"
     cilium install --context kind-cilium
     cilium status --wait --context kind-cilium
+    cilium hubble enable --ui --context kind-cilium
+    cilium hubble status --wait --context kind-cilium
+
+    # go to hubble UI: cilium hubble ui --context kind-cilium
     taint_control_plane "$CLUSTER_NAME"
 }
 
