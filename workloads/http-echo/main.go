@@ -1,34 +1,24 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"net"
 	"net/http"
+	"os"
 )
-
-type Response struct {
-	Message string `json:"message"`
-	IP string `json:"ip"`
-	Port string `json:"port"`
-}
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	host, port, _ := net.SplitHostPort(r.RemoteAddr)
 
-	resp := Response{
-		Message: "Hello!",
-		IP: host,
-		Port: port,
-	}
+	w.Header().Set("Content-Type", "text/plain")
+	fmt.Fprintf(w, "Hello!\nIP: %s\nPort: %s\nHostname: %s\nNode: %s\n",
+		host, port, os.Getenv("HOSTNAME"), os.Getenv("NODE_NAME"))
 
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(resp)
+	fmt.Printf("Request received - IP: %s, Port: %s\n", host, port)
 }
 
 func main() {
-	fmt.Println("Server is running on port 8080")
+	fmt.Println("Server is running on port 8080...")
 	http.HandleFunc("/", handler)
 	http.ListenAndServe(":8080", nil)
 }
-
