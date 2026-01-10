@@ -9,6 +9,8 @@ case "$1" in
   create)
     kind create cluster --name "$CLUSTER_NAME" --config "$SCRIPT_DIR/kind-default.yaml"
     taint_control_plane "$CLUSTER_NAME"
+    load_images "$CLUSTER_NAME"
+    deploy_pods "$CLUSTER_NAME"
     ;;
   delete)
     kind delete cluster --name "$CLUSTER_NAME"
