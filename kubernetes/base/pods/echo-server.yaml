@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: echo-server
+  labels: 
+    app: http-echo
+spec:
+  containers:
+  - name: echo-server
+    image: http-echo:latest
+    imagePullPolicy: Never
+    ports: 
+      - containerPort: 8080
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "100m"
+      limits:
+        memory: "128Mi"
+        cpu: "200m"
