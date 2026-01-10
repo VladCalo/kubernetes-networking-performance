@@ -11,7 +11,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	host, port, _ := net.SplitHostPort(r.RemoteAddr)
 
 	w.Header().Set("Content-Type", "text/plain")
-	fmt.Fprintf(w, "Hello! IP: %s, Port: %s\n", host, port)
+	fmt.Fprintf(w, "Hello, IP: %s, Port: %s\n", host, port)
 	fmt.Fprintf(w, "I'm node %s\n", os.Getenv("NODE_NAME"))
 	fmt.Printf("Request received - IP: %s, Port: %s\n", host, port)
 }
