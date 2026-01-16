@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - pods/echo-server.yaml
   - pods/client.yaml
+  - services/echo-service.yaml

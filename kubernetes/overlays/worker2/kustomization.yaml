@@ -4,13 +4,14 @@ kind: Kustomization
 resources:
   - ../../base
 
-nameSuffix: -w2
-
 patches:
   - target:
       kind: Pod
       name: echo-server
     patch: |
+      - op: replace
+        path: /metadata/name
+        value: echo-server-w2
       - op: add
         path: /spec/nodeName
         value: NODE_NAME_PLACEHOLDER
@@ -18,6 +19,9 @@ patches:
       kind: Pod
       name: client
     patch: |
+      - op: replace
+        path: /metadata/name
+        value: client-w2
       - op: add
         path: /spec/nodeName
         value: NODE_NAME_PLACEHOLDER
