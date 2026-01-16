@@ -21,6 +21,14 @@ load_images() {
     kind load docker-image curl-client:latest --name "$cluster_name"
 }
 
+deploy_shared() {
+    local cluster_name="$1"
+    local context="kind-${cluster_name}"
+
+    echo "Deploying shared resources"
+    kubectl --context "$context" apply -k "$K8S_DIR/shared"
+}
+
 deploy_pods() {
     local cluster_name="$1"
     local context="kind-${cluster_name}"
