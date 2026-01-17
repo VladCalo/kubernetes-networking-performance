@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+patches:
+  - target:
+      kind: Pod
+      name: iperf-server
+    patch: |
+      - op: replace
+        path: /metadata/name
+        value: iperf-server-w1
+      - op: add
+        path: /spec/nodeName
+        value: NODE_NAME_PLACEHOLDER
+  - target:
+      kind: Pod
+      name: iperf-client
+    patch: |
+      - op: replace
+        path: /metadata/name
+        value: iperf-client-w1
+      - op: add
+        path: /spec/nodeName
+        value: NODE_NAME_PLACEHOLDER

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: iperf-server
+  labels:
+    app: iperf3
+    role: server
+spec:
+  containers:
+  - name: iperf3
+    image: quay.io/networkstatic/iperf3:latest
+    imagePullPolicy: IfNotPresent
+    args: ["-s"]
+    ports:
+      - containerPort: 5201
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "100m"
+      limits:
+        memory: "128Mi"
+        cpu: "200m"
