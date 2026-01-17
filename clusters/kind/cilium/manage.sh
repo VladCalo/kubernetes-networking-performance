@@ -15,8 +15,6 @@ create_cluster() {
     # go to hubble UI: cilium hubble ui --context kind-cilium
     taint_control_plane "$CLUSTER_NAME"
     load_images "$CLUSTER_NAME"
-    deploy_shared "$CLUSTER_NAME"
-    deploy_pods "$CLUSTER_NAME"
 }
 
 case "$1" in
