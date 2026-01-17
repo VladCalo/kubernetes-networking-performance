@@ -7,6 +7,9 @@ if [ -n "$CTX" ]; then
   CTX_ARGS+=(--context "$CTX")
 fi
 
+# echo "Waiting for Cilium to be ready (if present)..."
+# kubectl "${CTX_ARGS[@]}" -n kube-system wait --for=condition=Ready pod -l k8s-app=cilium --timeout=180s || true
+
 mapfile -t workers < <(kubectl "${CTX_ARGS[@]}" get nodes -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}' | grep worker | sort)
 
 if [ "${#workers[@]}" -lt 2 ]; then
