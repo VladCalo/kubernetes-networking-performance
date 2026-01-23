@@ -8,7 +8,12 @@ source "$SCRIPT_DIR/../common/utility.sh"
 create_cluster() {
     kind create cluster --name "$CLUSTER_NAME" --config "$SCRIPT_DIR/kind-calico.yaml"
     kubectl --context kind-calico apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/calico.yaml
-    kubectl --context kind-calico -n kube-system set env ds/calico-node FELIX_BPFENABLED=true FELIX_BPFKUBEPROXYIPTABLESCLEANUPENABLED=true
+    kubectl --context kind-calico -n kube-system set env ds/calico-node \
+      FELIX_BPFENABLED=true \
+      FELIX_BPFKUBEPROXYIPTABLESCLEANUPENABLED=true \
+      CALICO_IPV4POOL_IPIP=Never \
+      CALICO_IPV4POOL_VXLAN=Never \
+      CALICO_IPV4POOL_CIDR=192.168.0.0/16
     kubectl --context kind-calico -n kube-system rollout status ds/calico-node --timeout=300s
     taint_control_plane "$CLUSTER_NAME"
     load_images "$CLUSTER_NAME"

@@ -1,0 +1,119 @@
+pod/iperf-client-w1 condition met
+pod/iperf-client-w2 condition met
+pod/iperf-server-w1 condition met
+pod/iperf-server-w2 condition met
+Running iperf tests in full mode
+Same-node (client-w1 -> server-w1, pod IP):
+Connecting to host 192.168.9.133, port 5201
+[  5] local 192.168.9.134 port 43578 connected to 192.168.9.133 port 5201
+[  7] local 192.168.9.134 port 43592 connected to 192.168.9.133 port 5201
+[  9] local 192.168.9.134 port 43594 connected to 192.168.9.133 port 5201
+[ 11] local 192.168.9.134 port 43610 connected to 192.168.9.133 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-5.07   sec  1.82 GBytes  3.09 Gbits/sec   94    477 KBytes       
+[  7]   0.00-5.07   sec  1.82 GBytes  3.09 Gbits/sec    0    675 KBytes       
+[  9]   0.00-5.07   sec  1.82 GBytes  3.09 Gbits/sec    0    690 KBytes       
+[ 11]   0.00-5.07   sec  1.82 GBytes  3.09 Gbits/sec    1    570 KBytes       
+[SUM]   0.00-5.07   sec  7.30 GBytes  12.4 Gbits/sec   95             
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[  5]   5.07-10.07  sec  1.81 GBytes  3.11 Gbits/sec    0    489 KBytes       
+[  7]   5.07-10.07  sec  1.81 GBytes  3.11 Gbits/sec    1    678 KBytes       
+[  9]   5.07-10.07  sec  1.81 GBytes  3.11 Gbits/sec  265    764 KBytes       
+[ 11]   5.07-10.07  sec  1.81 GBytes  3.11 Gbits/sec    0    593 KBytes       
+[SUM]   5.07-10.07  sec  7.24 GBytes  12.4 Gbits/sec  266             
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[  5]  10.07-15.07  sec  1.77 GBytes  3.04 Gbits/sec    7    515 KBytes       
+[  7]  10.07-15.07  sec  1.77 GBytes  3.03 Gbits/sec    0    681 KBytes       
+[  9]  10.07-15.07  sec  1.77 GBytes  3.03 Gbits/sec    0    767 KBytes       
+[ 11]  10.07-15.07  sec  1.77 GBytes  3.04 Gbits/sec    0    640 KBytes       
+[SUM]  10.07-15.07  sec  7.07 GBytes  12.1 Gbits/sec    7             
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[  5]  15.07-20.07  sec  1.75 GBytes  3.01 Gbits/sec  143    542 KBytes       
+[  7]  15.07-20.07  sec  1.75 GBytes  3.01 Gbits/sec   90    694 KBytes       
+[  9]  15.07-20.07  sec  1.75 GBytes  3.01 Gbits/sec  145    538 KBytes       
+[ 11]  15.07-20.07  sec  1.75 GBytes  3.01 Gbits/sec  173    667 KBytes       
+[SUM]  15.07-20.07  sec  7.01 GBytes  12.0 Gbits/sec  551             
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[  5]  20.07-25.07  sec  1.76 GBytes  3.03 Gbits/sec    0    551 KBytes       
+[  7]  20.07-25.07  sec  1.76 GBytes  3.03 Gbits/sec    0    697 KBytes       
+[  9]  20.07-25.07  sec  1.76 GBytes  3.03 Gbits/sec    0    538 KBytes       
+[ 11]  20.07-25.07  sec  1.76 GBytes  3.03 Gbits/sec    1    674 KBytes       
+[SUM]  20.07-25.07  sec  7.05 GBytes  12.1 Gbits/sec    1             
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[  5]  25.07-30.07  sec  1.80 GBytes  3.09 Gbits/sec   46    559 KBytes       
+[  7]  25.07-30.07  sec  1.80 GBytes  3.09 Gbits/sec    1    707 KBytes       
+[  9]  25.07-30.07  sec  1.80 GBytes  3.09 Gbits/sec    0    538 KBytes       
+[ 11]  25.07-30.07  sec  1.80 GBytes  3.09 Gbits/sec    1    683 KBytes       
+[SUM]  25.07-30.07  sec  7.20 GBytes  12.4 Gbits/sec   48             
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.07  sec  10.7 GBytes  3.06 Gbits/sec  290             sender
+[  5]   0.00-30.07  sec  10.7 GBytes  3.06 Gbits/sec                  receiver
+[  7]   0.00-30.07  sec  10.7 GBytes  3.06 Gbits/sec   92             sender
+[  7]   0.00-30.07  sec  10.7 GBytes  3.06 Gbits/sec                  receiver
+[  9]   0.00-30.07  sec  10.7 GBytes  3.06 Gbits/sec  410             sender
+[  9]   0.00-30.07  sec  10.7 GBytes  3.06 Gbits/sec                  receiver
+[ 11]   0.00-30.07  sec  10.7 GBytes  3.06 Gbits/sec  176             sender
+[ 11]   0.00-30.07  sec  10.7 GBytes  3.06 Gbits/sec                  receiver
+[SUM]   0.00-30.07  sec  42.9 GBytes  12.2 Gbits/sec  968             sender
+[SUM]   0.00-30.07  sec  42.9 GBytes  12.2 Gbits/sec                  receiver
+
+iperf Done.
+
+Cross-node (client-w1 -> server-w2, pod IP):
+Connecting to host 192.168.88.1, port 5201
+[  5] local 192.168.9.134 port 55040 connected to 192.168.88.1 port 5201
+[  7] local 192.168.9.134 port 55042 connected to 192.168.88.1 port 5201
+[  9] local 192.168.9.134 port 55056 connected to 192.168.88.1 port 5201
+[ 11] local 192.168.9.134 port 55070 connected to 192.168.88.1 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-5.00   sec  1.00 GBytes  1.72 Gbits/sec   12    388 KBytes       
+[  7]   0.00-5.00   sec  1.00 GBytes  1.72 Gbits/sec  190    462 KBytes       
+[  9]   0.00-5.00   sec  1.00 GBytes  1.72 Gbits/sec   92    701 KBytes       
+[ 11]   0.00-5.00   sec  1.00 GBytes  1.72 Gbits/sec   49    706 KBytes       
+[SUM]   0.00-5.00   sec  4.01 GBytes  6.89 Gbits/sec  343             
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[  5]   5.00-10.00  sec  1.06 GBytes  1.83 Gbits/sec    1    462 KBytes       
+[  7]   5.00-10.00  sec  1.07 GBytes  1.83 Gbits/sec  212    462 KBytes       
+[  9]   5.00-10.00  sec  1.08 GBytes  1.85 Gbits/sec  377    713 KBytes       
+[ 11]   5.00-10.00  sec  1.07 GBytes  1.84 Gbits/sec   48    563 KBytes       
+[SUM]   5.00-10.00  sec  4.28 GBytes  7.35 Gbits/sec  638             
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[  5]  10.00-15.00  sec  1.07 GBytes  1.84 Gbits/sec   39    473 KBytes       
+[  7]  10.00-15.00  sec  1.07 GBytes  1.84 Gbits/sec    3    480 KBytes       
+[  9]  10.00-15.00  sec  1.07 GBytes  1.84 Gbits/sec    3    720 KBytes       
+[ 11]  10.00-15.00  sec  1.07 GBytes  1.84 Gbits/sec    1    570 KBytes       
+[SUM]  10.00-15.00  sec  4.28 GBytes  7.36 Gbits/sec   46             
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[  5]  15.00-20.00  sec  1.02 GBytes  1.75 Gbits/sec    1    473 KBytes       
+[  7]  15.00-20.00  sec  1.02 GBytes  1.75 Gbits/sec    1    480 KBytes       
+[  9]  15.00-20.00  sec  1.02 GBytes  1.75 Gbits/sec    0    720 KBytes       
+[ 11]  15.00-20.00  sec  1.02 GBytes  1.75 Gbits/sec    1    570 KBytes       
+[SUM]  15.00-20.00  sec  4.07 GBytes  7.00 Gbits/sec    3             
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[  5]  20.00-25.00  sec  1.02 GBytes  1.74 Gbits/sec   91    501 KBytes       
+[  7]  20.00-25.00  sec  1.02 GBytes  1.74 Gbits/sec    0    502 KBytes       
+[  9]  20.00-25.00  sec  1.02 GBytes  1.76 Gbits/sec    0    739 KBytes       
+[ 11]  20.00-25.00  sec  1.02 GBytes  1.75 Gbits/sec    0    593 KBytes       
+[SUM]  20.00-25.00  sec  4.07 GBytes  7.00 Gbits/sec   91             
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[  5]  25.00-30.00  sec  1.05 GBytes  1.80 Gbits/sec    2    547 KBytes       
+[  7]  25.00-30.00  sec  1.05 GBytes  1.80 Gbits/sec    0    529 KBytes       
+[  9]  25.00-30.00  sec  1.05 GBytes  1.81 Gbits/sec    1    761 KBytes       
+[ 11]  25.00-30.00  sec  1.05 GBytes  1.81 Gbits/sec  288    628 KBytes       
+[SUM]  25.00-30.00  sec  4.20 GBytes  7.22 Gbits/sec  291             
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-30.00  sec  6.22 GBytes  1.78 Gbits/sec  146             sender
+[  5]   0.00-30.00  sec  6.22 GBytes  1.78 Gbits/sec                  receiver
+[  7]   0.00-30.00  sec  6.22 GBytes  1.78 Gbits/sec  406             sender
+[  7]   0.00-30.00  sec  6.22 GBytes  1.78 Gbits/sec                  receiver
+[  9]   0.00-30.00  sec  6.24 GBytes  1.79 Gbits/sec  473             sender
+[  9]   0.00-30.00  sec  6.24 GBytes  1.79 Gbits/sec                  receiver
+[ 11]   0.00-30.00  sec  6.23 GBytes  1.79 Gbits/sec  387             sender
+[ 11]   0.00-30.00  sec  6.23 GBytes  1.79 Gbits/sec                  receiver
+[SUM]   0.00-30.00  sec  24.9 GBytes  7.13 Gbits/sec  1412             sender
+[SUM]   0.00-30.00  sec  24.9 GBytes  7.13 Gbits/sec                  receiver
+
+iperf Done.
+

@@ -10,7 +10,10 @@ create_cluster() {
     cilium install --context kind-cilium \
       --set kubeProxyReplacement=true \
       --set enable-bpf-masquerade=true \
-      --set bpf.lbExternalClusterIP=true
+      --set bpf.lbExternalClusterIP=true \
+      --set routingMode=native \
+      --set autoDirectNodeRoutes=true \
+      --set ipv4NativeRoutingCIDR=10.244.0.0/16
     kubectl --context kind-cilium -n kube-system wait --for=condition=Ready pod -l k8s-app=cilium --timeout=300s
     cilium status --context kind-cilium || true
     cilium hubble enable --ui --context kind-cilium || true
