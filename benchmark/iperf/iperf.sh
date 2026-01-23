@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 CLUSTER_PATH="$ROOT_DIR/clusters/kind"
 WORKLOAD_IPERF="$ROOT_DIR/workloads/iperf3/deploy.sh"
 TEST_IPERF="$ROOT_DIR/test-suite/iperf/run.sh"
@@ -42,7 +42,6 @@ run_suite() {
     echo "Saved results to $outfile"
 }
 
-# for cluster in default calico cilium; do
 for cluster in cilium; do
     echo "=== Cluster: $cluster ==="
     create_cluster "$cluster"

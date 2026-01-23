@@ -7,7 +7,10 @@ source "$SCRIPT_DIR/../common/utility.sh"
 
 create_cluster() {
     kind create cluster --name "$CLUSTER_NAME" --config "$SCRIPT_DIR/kind-cilium.yaml"
-    cilium install --context kind-cilium
+    cilium install --context kind-cilium \
+      --set kubeProxyReplacement=true \
+      --set enable-bpf-masquerade=true \
+      --set bpf.lbExternalClusterIP=true
     kubectl --context kind-cilium -n kube-system wait --for=condition=Ready pod -l k8s-app=cilium --timeout=300s
     cilium status --context kind-cilium || true
     cilium hubble enable --ui --context kind-cilium || true
