@@ -8,9 +8,10 @@ source "$SCRIPT_DIR/../common/utility.sh"
 create_cluster() {
     kind create cluster --name "$CLUSTER_NAME" --config "$SCRIPT_DIR/kind-cilium.yaml"
     cilium install --context kind-cilium
-    cilium status --wait --context kind-cilium
-    cilium hubble enable --ui --context kind-cilium
-    cilium hubble status --wait --context kind-cilium
+    kubectl --context kind-cilium -n kube-system wait --for=condition=Ready pod -l k8s-app=cilium --timeout=300s
+    cilium status --context kind-cilium || true
+    cilium hubble enable --ui --context kind-cilium || true
+    cilium hubble status --context kind-cilium || true
 
     # go to hubble UI: cilium hubble ui --context kind-cilium
     taint_control_plane "$CLUSTER_NAME"
