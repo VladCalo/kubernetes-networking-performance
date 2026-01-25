@@ -1,0 +1,17 @@
+1️⃣ Throughput baseline (iperf3) + profiling cpu
+PodIP → PodIP DONE
+Same-node vs cross-node DONE
+Jumbo vs standard MTU how to change MTU
+📌 Output: max Gbps
+
+2️⃣ Latency & stability (Fortio)
+Run uncapped (-qps 0) Fortio with large payloads.
+Measure:
+p50 / p99 latency
+error rate
+achieved RPS
+Compare:
+PodIP vs Service
+Policy on vs off
+eBPF on vs off
+📌 Output: latency curves + error %
