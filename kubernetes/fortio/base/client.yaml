@@ -10,8 +10,8 @@ spec:
   - name: fortio
     image: fortio/fortio:latest
     imagePullPolicy: IfNotPresent
-    command: ["sh", "-c"]
-    args: ["sleep infinity"]
+    command: ["fortio"]
+    args: ["server", "-http-port", "8081", "-grpc-port", "disabled", "-tcp-port", "disabled", "-udp-port", "disabled", "-redirect-port", "disabled", "-loglevel", "Warning"]
     resources:
       requests:
         cpu: "100m"
